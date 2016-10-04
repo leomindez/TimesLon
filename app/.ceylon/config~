@@ -1,0 +1,12 @@
+
+[compiler]
+jdkprovider=android/24
+source=src/main/ceylon
+source=build/generated/source/r/debug
+source=source
+
+[repositories]
+lookup=./build/intermediates/ceylon-android/repository
+
+[defaults]
+offline=false
