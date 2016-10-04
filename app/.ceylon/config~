@@ -10,3 +10,5 @@ lookup=./build/intermediates/ceylon-android/repository
 
 [defaults]
 offline=false
+flatclasspath=false
+autoexportmavendependencies=false

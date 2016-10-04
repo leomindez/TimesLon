@@ -48,4 +48,5 @@ dependencies {
 }
 ceylon{
     module "com.leo.timeslon/1.0"
+    forceImports true
 }
