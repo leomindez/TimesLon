@@ -6,9 +6,10 @@ import android.support.v7.widget {
 import android.view {
     ViewGroup
 }
-import java.util {
+import ceylon.collection {
     ArrayList
 }
+
 
  abstract shared class GenericRecyclerViewAdapter<Holder, Item>(variable ArrayList<Item>? items = ArrayList<Item>()) extends Adapter<Holder>() given Holder satisfies RecyclerView.ViewHolder {
 
@@ -20,7 +21,7 @@ import java.util {
 
      shared actual Integer itemCount {
          if (exists arrayList = items) {
-            return arrayList.size();
+            return arrayList.size;
          }else{
              return 0;
          }
@@ -34,11 +35,11 @@ import java.util {
      }
 
      shared void deteleItem(Integer position) {
-         items?.remove(position);
+         items?.delete(position);
          notifyDataSetChanged();
      }
-      shared void addItems(ArrayList<Item> items) {
-          items.addAll(items);
+      shared void addItems(Item* otherItems) {
+          items?.addAll(otherItems);
           notifyDataSetChanged();
       }
 }

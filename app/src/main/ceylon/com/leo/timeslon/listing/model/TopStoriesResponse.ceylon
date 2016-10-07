@@ -1,7 +1,11 @@
-shared class TopStoriesResponse(
-shared String? status,
-shared String? copyright,
-shared String? section,
-shared String? lastUpdated,
-shared Integer? numResults,
-shared List<Result> results) {}
+import ceylon.collection {
+    ArrayList
+}
+shared class TopStoriesResponse(status,copyright,section,lastUpdated,numResults,results) {
+    shared String? status;
+    shared String? copyright;
+    shared String? section;
+    shared String? lastUpdated;
+    shared Integer? numResults;
+    shared ArrayList<Result> results;
+}

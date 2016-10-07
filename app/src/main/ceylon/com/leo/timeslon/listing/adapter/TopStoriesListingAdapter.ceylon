@@ -15,7 +15,8 @@ import com.leo.timeslon {
         Layout = layout
     }
 }
-class TopStoriesListingAdapter() extends GenericRecyclerViewAdapter<TopStoriesViewHolder, Result>(){
+
+shared class TopStoriesListingAdapter() extends GenericRecyclerViewAdapter<TopStoriesViewHolder, Result>(){
 
     shared actual void bindView(TopStoriesViewHolder holder, Result? item) {
         holder.bindData(item);

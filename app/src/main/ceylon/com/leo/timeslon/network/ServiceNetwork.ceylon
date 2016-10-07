@@ -1,21 +1,14 @@
-import com.androidnetworking{
-    AndroidNetworking {
-        get
-    }
-}
-import com.androidnetworking.common {
-    Priority
-}
-import okhttp3 {
-    Response
-}
-import com.androidnetworking.error {
-    ANError
-}
-import com.androidnetworking.interfaces {
-    OkHttpResponseListener
+
+import com.github.asifmujteba.easyvolley { ASFRequestListener
+    , EasyVolley {
+    withGlobalQueue
+} }
+import com.google.gson {
+    JsonObject,
+    Gson
 }
 
+import ceylon.interop.java { javaClass }
 
 shared class ServiceNetwork() {
 
@@ -24,20 +17,17 @@ shared class ServiceNetwork() {
         shared {<String->String>+} baseParams = {"api-key" -> "779d0d44410f15a1305adc3ca7839156:19:74782749"};
     }
 
-    shared void getStoriesFrom(String endpoint, Anything(ANError|Response?) callback){
-
-        value request = get(server.baseurl);
-
-        request.setTag(this);
-        request.addPathParameter(server.baseParams.first.key, server.baseParams.first.item);
-        request.setPriority(Priority.low);
-        request.build().getAsOkHttpResponse(object satisfies OkHttpResponseListener {
-            shared actual void onError(ANError? anError) {
-                callback(anError);
-            }
-            shared actual void onResponse(Response? response) {
-                callback(response);
-            }
+    shared void getStoriesFrom<ResponseModel>(String endpoint, Anything(Exception | ResponseModel?) callback) given ResponseModel satisfies Object{
+        withGlobalQueue()
+            .load(server.baseurl + endpoint)
+            .asJsonObject()
+            .setCallback(object satisfies ASFRequestListener<JsonObject> {
+                shared actual void onFailure(Exception? e) {
+                    callback(e);
+                }
+                shared actual void onSuccess(JsonObject? response) {
+                    callback(Gson().fromJson(response?.asString, javaClass<ResponseModel>()));
+                }
         });
     }
 }

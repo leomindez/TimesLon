@@ -1,14 +1,19 @@
 import android.app {
     Application
 }
-import com.androidnetworking {
-    AndroidNetworking {
-        initialize
-    }
-}
+import com.github.asifmujteba.easyvolley { EasyVolley {
+    initialize,
+    dispose
+} }
+
 class TimesLonApp() extends Application() {
     shared actual void onCreate(){
-        super.onCreate();
         initialize(this);
+        super.onCreate();
+    }
+
+    shared actual void onTerminate(){
+        dispose();
+        super.onTerminate();
     }
 }

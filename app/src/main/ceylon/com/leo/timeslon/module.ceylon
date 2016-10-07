@@ -5,5 +5,8 @@ module com.leo.timeslon "1.0" {
     import android "24";
     import "com.android.support.appcompat-v7" "24.2.1";
     import "com.android.support.recyclerview-v7" "24.2.1";
-    import "com.amitshekhar.android.android-networking" "0.2.0";
+    import "com.github.asifmujteba.easyvolley" "0.9.7";
+    import "com.facebook.fresco.fresco" "0.14.1";
+    import "ceylon.interop.java" "1.3.0";
 }
+

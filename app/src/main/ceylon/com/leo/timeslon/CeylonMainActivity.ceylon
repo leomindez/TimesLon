@@ -7,15 +7,22 @@ import android.support.v7.app {
 import com.leo.timeslon.network {
     ServiceNetwork
 }
-import com.androidnetworking.error {
-    ANError
+
+import android.support.v7.widget {
+    RecyclerView,
+    LinearLayoutManager
 }
-import okhttp3 {
-    Response
+import com.leo.timeslon.listing.model {
+    TopStoriesResponse
 }
+import com.leo.timeslon.listing.adapter {
+    TopStoriesListingAdapter
+}
+
 import android.util {
     Log
 }
+
 
 shared class CeylonMainActivity() extends AppCompatActivity() {
 
@@ -23,7 +30,17 @@ shared class CeylonMainActivity() extends AppCompatActivity() {
         super.onCreate(savedInstanceState);
         setContentView(R.Layout.activity_main);
 
-        ServiceNetwork().getStoriesFrom("home.json", (ANError|Response? response) {
+        ServiceNetwork().getStoriesFrom<TopStoriesResponse>("home.json",(Exception | TopStoriesResponse? response) {
+
+            assert(is RecyclerView recyclerView = findViewById(R.Id.top_stories_listing));
+                recyclerView.layoutManager = LinearLayoutManager(this);
+                TopStoriesListingAdapter topStoriesListingAdapter = TopStoriesListingAdapter();
+                recyclerView.adapter = topStoriesListingAdapter;
+                if(is TopStoriesResponse response){
+                    topStoriesListingAdapter.addItems(*response.results);
+                }else{
+                    Log.e("Response error", response?.message);
+                }
 
         });
     }
