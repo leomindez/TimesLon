@@ -20,6 +20,7 @@ shared class ServiceNetwork() {
     shared void getStoriesFrom<ResponseModel>(String endpoint, Anything(Exception | ResponseModel?) callback) given ResponseModel satisfies Object{
         withGlobalQueue()
             .load(server.baseurl + endpoint)
+            .addParam(server.baseParams.first.key, server.baseParams.first.item)
             .asJsonObject()
             .setCallback(object satisfies ASFRequestListener<JsonObject> {
                 shared actual void onFailure(Exception? e) {
