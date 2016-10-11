@@ -6,7 +6,7 @@ import com.github.asifmujteba.easyvolley { EasyVolley {
     dispose
 } }
 
-class TimesLonApp() extends Application() {
+shared class TimesLonApp() extends Application() {
     shared actual void onCreate(){
         initialize(this);
         super.onCreate();
