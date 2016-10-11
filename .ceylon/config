@@ -1,6 +1,6 @@
 
 [compiler]
-jdkprovider=android/24
+jdkprovider=android/unknown
 source=src/main/ceylon
 source=build/generated/source/r/debug
 source=source
@@ -10,7 +10,6 @@ lookup=./build/intermediates/ceylon-android/repository
 
 [defaults]
 offline=false
-flatclasspath=false
-autoexportmavendependencies=false
-overrides= ../overrides.xml
-
+overrides=overrides.xml
+flatclasspath=true
+autoexportmavendependencies=true
