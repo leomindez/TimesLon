@@ -8,5 +8,7 @@ module com.leo.timeslon "1.0" {
     import "com.github.asifmujteba.easyvolley" "0.9.7";
     import "com.facebook.fresco.fresco" "0.14.1";
     import "ceylon.interop.java" "1.3.0";
+    import "com.github.bumptech.glide.glide" "3.7.0";
+
 }
 

@@ -45,6 +45,8 @@ dependencies {
     compile 'com.android.support:recyclerview-v7:24.2.1'
     compile 'com.github.asifmujteba:easyvolley:0.9.7'
     compile 'com.facebook.fresco:fresco:0.14.1'
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+
 }
 ceylon{
     module "com.leo.timeslon/1.0"

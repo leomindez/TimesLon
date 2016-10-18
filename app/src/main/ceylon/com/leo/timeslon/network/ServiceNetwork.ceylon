@@ -1,14 +1,21 @@
 
-import com.github.asifmujteba.easyvolley { ASFRequestListener
+import com.github.asifmujteba.easyvolley {
+    ASFRequestListener
     , EasyVolley {
     withGlobalQueue
-} }
+    }
+}
+
 import com.google.gson {
     JsonObject,
     Gson
 }
 
 import ceylon.interop.java { javaClass }
+
+import android.util {
+    Log
+}
 
 shared class ServiceNetwork() {
 
@@ -27,8 +34,24 @@ shared class ServiceNetwork() {
                     callback(e);
                 }
                 shared actual void onSuccess(JsonObject? response) {
-                    callback(Gson().fromJson(response?.asString, javaClass<ResponseModel>()));
+                    callback(Gson().fromJson(response?.string, javaClass<ResponseModel>()));
                 }
-        });
+        }).start();
+    }
+
+
+    shared void getStories(String endpoint, Anything(Exception | JsonObject?) callback){
+        withGlobalQueue()
+            .load(server.baseurl + endpoint)
+            .addParam(server.baseParams.first.key, server.baseParams.first.item)
+            .asJsonObject()
+            .setCallback(object satisfies ASFRequestListener<JsonObject> {
+            shared actual void onFailure(Exception? e) {
+                callback(e);
+            }
+            shared actual void onSuccess(JsonObject? response) {
+                callback(response);
+            }
+        }).start();
     }
 }

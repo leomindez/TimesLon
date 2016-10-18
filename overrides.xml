@@ -1,5 +1,5 @@
 <overrides xmlns="http://www.ceylon-lang.org/xsd/overrides">
-    <module module="com.android.support.appcompat-v7">
+    <module module="com.android.support.appcompat-v7" version="24.2.1">
         <add module="com.android.support.recyclerview-v7" version="24.2.1"/>
     </module>
 </overrides>
