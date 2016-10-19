@@ -4,9 +4,6 @@ import android.os {
 import android.support.v7.app {
     AppCompatActivity
 }
-import com.leo.timeslon.network {
-    ServiceNetwork
-}
 
 import android.support.v7.widget {
     RecyclerView,
@@ -28,6 +25,12 @@ import com.leo.timeslon.listing.view {
 import com.leo.timeslon.listing {
     TopStoriesPresenter
 }
+import com.leo.timeslon {
+    R
+}
+import com.leo.timeslon.network {
+    ServiceNetwork
+}
 
 
 shared class CeylonMainActivity() extends AppCompatActivity() satisfies TopStoriesView {
@@ -38,7 +41,6 @@ shared class CeylonMainActivity() extends AppCompatActivity() satisfies TopStori
 
         TopStoriesPresenter topStoriesPresenter = TopStoriesPresenter();
         topStoriesPresenter.getTopStories("home.json", this);
-
     }
 
     shared actual void showTopStories(Exception|TopStoriesResponse? response) {

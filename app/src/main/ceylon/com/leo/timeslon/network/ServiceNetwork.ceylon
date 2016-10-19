@@ -19,8 +19,8 @@ import android.util {
 
 shared class ServiceNetwork() {
 
-   object server {
-        shared String baseurl = "https://api.nytimes.com/svc/topstories/v2/";
+  shared object server {
+        shared  String baseurl = "https://api.nytimes.com/svc/topstories/v2/";
         shared {<String->String>+} baseParams = {"api-key" -> "779d0d44410f15a1305adc3ca7839156:19:74782749"};
     }
 
