@@ -22,26 +22,36 @@ import com.leo.timeslon.listing.adapter {
 import android.util {
     Log
 }
+import com.leo.timeslon.listing.view {
+    TopStoriesView
+}
+import com.leo.timeslon.listing {
+    TopStoriesPresenter
+}
 
-shared class CeylonMainActivity() extends AppCompatActivity() {
+
+shared class CeylonMainActivity() extends AppCompatActivity() satisfies TopStoriesView {
 
     shared actual void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.Layout.activity_main);
 
-        ServiceNetwork serviceNetwork = ServiceNetwork();
-        serviceNetwork.getStoriesFrom<TopStoriesResponse>("home.json", (Exception|TopStoriesResponse? response) {
-
-            assert(is RecyclerView recyclerView = findViewById(R.Id.top_stories_listing));
-            recyclerView.layoutManager = LinearLayoutManager(this);
-            TopStoriesListingAdapter topStoriesListingAdapter = TopStoriesListingAdapter();
-            recyclerView.adapter = topStoriesListingAdapter;
-            if(is TopStoriesResponse response){
-                topStoriesListingAdapter.addItems(response.results);
-            }else{
-                Log.e("Response error", response?.message);
-            }
-        });
+        TopStoriesPresenter topStoriesPresenter = TopStoriesPresenter();
+        topStoriesPresenter.getTopStories("home.json", this);
 
     }
+
+    shared actual void showTopStories(Exception|TopStoriesResponse? response) {
+
+        assert(is RecyclerView recyclerView = findViewById(R.Id.top_stories_listing));
+        recyclerView.layoutManager = LinearLayoutManager(this);
+        TopStoriesListingAdapter topStoriesListingAdapter = TopStoriesListingAdapter();
+        recyclerView.adapter = topStoriesListingAdapter;
+        if(is TopStoriesResponse response){
+            topStoriesListingAdapter.addItems(response.results);
+        }else{
+            Log.e("Response error", response?.message);
+        }
+    }
+
 }
