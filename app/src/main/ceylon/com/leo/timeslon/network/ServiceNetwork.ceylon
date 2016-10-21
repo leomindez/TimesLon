@@ -2,7 +2,7 @@
 import com.github.asifmujteba.easyvolley {
     ASFRequestListener
     , EasyVolley {
-    withGlobalQueue
+      withGlobalQueue
     }
 }
 
@@ -12,10 +12,6 @@ import com.google.gson {
 }
 
 import ceylon.interop.java { javaClass }
-
-import android.util {
-    Log
-}
 
 shared class ServiceNetwork() {
 

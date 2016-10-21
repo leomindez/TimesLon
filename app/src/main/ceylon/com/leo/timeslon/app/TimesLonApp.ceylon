@@ -1,10 +1,13 @@
 import android.app {
     Application
 }
-import com.github.asifmujteba.easyvolley { EasyVolley {
-    initialize,
-    dispose
-} }
+
+import com.github.asifmujteba.easyvolley {
+    EasyVolley {
+        initialize,
+        dispose
+    }
+}
 
 shared class TimesLonApp() extends Application() {
     shared actual void onCreate(){

@@ -22,6 +22,7 @@ shared class TopStoriesListingAdapter() extends GenericRecyclerViewAdapter<TopSt
         holder.bindData(item);
     }
 
-    shared actual TopStoriesViewHolder createHolder(ViewGroup? view) => TopStoriesViewHolder(from(view?.context).inflate(Layout.listing_item, view,false));
+    shared actual TopStoriesViewHolder createHolder(ViewGroup? view)
+            => TopStoriesViewHolder(from(view?.context).inflate(Layout.listing_item, view,false));
 
 }

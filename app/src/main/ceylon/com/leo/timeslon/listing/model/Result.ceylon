@@ -2,7 +2,6 @@ import java.util {
     List
 }
 
-
 shared class Result (section,subsection,title,abstract,url,byline,itemType,updatedDate,createdDate,publishedDate,materialTypeFacet,kicker,desFacet,orgFacet,perFacet,geoFacet,multimedia) {
 
     shared String section;

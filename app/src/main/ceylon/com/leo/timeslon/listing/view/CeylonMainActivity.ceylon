@@ -22,16 +22,10 @@ import android.util {
 import com.leo.timeslon.listing.view {
     TopStoriesView
 }
-import com.leo.timeslon.listing {
-    TopStoriesPresenter
-}
+
 import com.leo.timeslon {
     R
 }
-import com.leo.timeslon.network {
-    ServiceNetwork
-}
-
 
 shared class CeylonMainActivity() extends AppCompatActivity() satisfies TopStoriesView {
 
@@ -41,6 +35,7 @@ shared class CeylonMainActivity() extends AppCompatActivity() satisfies TopStori
 
         TopStoriesPresenter topStoriesPresenter = TopStoriesPresenter();
         topStoriesPresenter.getTopStories("home.json", this);
+
     }
 
     shared actual void showTopStories(Exception|TopStoriesResponse? response) {
@@ -49,11 +44,11 @@ shared class CeylonMainActivity() extends AppCompatActivity() satisfies TopStori
         recyclerView.layoutManager = LinearLayoutManager(this);
         TopStoriesListingAdapter topStoriesListingAdapter = TopStoriesListingAdapter();
         recyclerView.adapter = topStoriesListingAdapter;
+
         if(is TopStoriesResponse response){
             topStoriesListingAdapter.addItems(response.results);
         }else{
             Log.e("Response error", response?.message);
         }
     }
-
 }

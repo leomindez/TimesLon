@@ -12,3 +12,5 @@ lookup=./build/intermediates/ceylon-android/repository
 offline=false
 flatclasspath=false
 autoexportmavendependencies=false
+overrides= ../overrides.xml
+

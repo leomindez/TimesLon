@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:name=".app.TimesLonApp">
-        <activity android:name=".CeylonMainActivity">
+        <activity android:name=".listing.view.CeylonMainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
