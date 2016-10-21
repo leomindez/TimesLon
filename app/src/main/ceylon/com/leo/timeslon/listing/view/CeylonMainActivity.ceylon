@@ -20,9 +20,7 @@ import android.util {
     Log
 }
 import com.leo.timeslon.listing.view {
-    TopStoriesView
-}
-import com.leo.timeslon.listing {
+    TopStoriesView,
     TopStoriesPresenter
 }
 import com.leo.timeslon {
