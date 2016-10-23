@@ -17,7 +17,7 @@ void response ( Anything(Error | Response? ) response);
 
 ### Mixin Inheritance
 
-Using interface to be able create interfaces with methods without implementatio or implement methods
+Using interface to be able create interfaces with methods without implementation or implemented methods
 ```
 shared interface View {
   shared void printError(String message);
