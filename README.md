@@ -20,8 +20,8 @@ void response ( Anything(Error | Response? ) response);
 Using interface to be able create interfaces with methods without implementation or implemented methods
 ```
 shared interface View {
-  shared void printError(String message);
-  shared void showResult(Result result) {
+  shared formal void printError(String message);
+  shared default void showResult(Result result) {
     print(result.string);
   }
 }
