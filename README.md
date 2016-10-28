@@ -31,7 +31,7 @@ shared interface View {
 Be able to object declaration to create a simple server config
 ```
 shared object serverconfig {
-    shared String baseUrl = "https://androidrules.com"
+    shared String baseUrl = "https://androidrules.com";
 }
 ```
 
@@ -39,7 +39,7 @@ shared object serverconfig {
 
 Be able to create callable functions to replace callback interfaces
 ```
-  function response(Response) => print(response.string);
+  function response(Response response) => print(response.string);
 ```
 
 
