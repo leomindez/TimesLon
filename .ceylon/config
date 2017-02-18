@@ -1,3 +1,5 @@
+[compiler.jvm]
+target=7
 
 [compiler]
 jdkprovider=android/unknown
