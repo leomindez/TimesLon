@@ -2,7 +2,7 @@
 Example to create a simple Android App using Ceylon Lang 
 
 ## Requirements 
-* Ceylon 1.3.0 (Use 1.3.0 Ceylon version there is an issue by using 1.3.1)
+* Ceylon 1.3.x
 * Intellij Plugin 
 * Android Studio 
 
