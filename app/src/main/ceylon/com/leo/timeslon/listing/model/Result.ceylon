@@ -21,4 +21,8 @@ shared class Result (section,subsection,title,abstract,url,byline,itemType,updat
     shared List<String> perFacet;
     shared List<String> geoFacet;
     shared List<Multimedium> multimedia;
+
+    shared Boolean matches(String searchString) =>
+        searchString in title.lowercased;
+
 }
